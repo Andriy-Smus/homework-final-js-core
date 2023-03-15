@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --cell-width: 75px;
+    --cell-height: 75px
+}
+
+.game-container {
+    width: 800px;
+    height: 100vh;
+    margin: 0 auto;
+}
+.game-container_panel {
+    width: 800px;
+    height: 30vh;
+}
+
+.panel-timer {
+    width: 800px;
+    height: 18vh;
+    font-size: 4.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel-buttons {
+    width: 800px;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    width: 120px;
+    padding: 8px;
+    margin: 0px 10px 0;
+    color: #fff;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #d12828;
+    border: none;
+}
+.btn:hover{
+    background-color: #bb3030;
+}
+.btn:focus{
+    border: 2px solid #f36767;
+}
+
+.game-container_displays {
+    width: 800px;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.displays-puzzle,
+.displays-solution {    
+    width: 300px;
+    height: 300px;
+    box-shadow: 0 0 10px 0 rgb(54, 54, 54);
+}
+
+.displays-solution,
+.displays-puzzle {
+    display: grid;
+    grid-template-columns: 75px 75px 75px 75px;
+    grid-template-rows: 75px 75px 75px 75px;
+    gap: 0px 0px;
+    grid-template-areas:
+    ". . . ."
+    ". . . ."
+    ". . . ."
+    ". . . .";
+}
+
+.displays-puzzle {
+    margin-right: 40px;
+    position: relative;
+}
+
+/* modal */
+
+.modal-window {
+    background-color: #fff;
+    position: absolute;
+    width: 600px;
+    height: 25vh;
+    margin: 0 auto;
+    top: -30vh;
+    right: 0;
+    left: 0;
+    border-radius: 10px;
+    z-index: 4;
+}
+
+.modal-window_messages {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.modal-window_buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-window_buttons .btn:nth-of-type(2) {
+    background-color: #008000;
+}
+.modal-window_buttons .btn:nth-of-type(2):hover {
+    background-color: #007200;
+}
+.modal-window_buttons .btn:nth-of-type(2):focus {
+    border: 2px solid #3cb13c;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #ccccccc5;
+    z-index: 3;
+}
+
+/* java script */
+
+.hidden {
+    display: none;
+}
+
+.disabled {
+    opacity: 0.5;
+}
+
+/* puzzle */
+
+.displays-puzzle_item {
+    width: var(--cell-width);
+    height: var(--cell-height);
+}
+
+.displays-puzzle_item[data-idx="1"] {
+    background-image: url('image/l-q-bcPP_6XhLKNqqPpvzg-default_photo-resizer.ru.jpg');
+    background-position: 300px 0;
+}
+
+.displays-puzzle_item[data-idx="2"] {
+    background-image: url('image/l-q-bcPP_6XhLKNqqPpvzg-default_photo-resizer.ru.jpg');
+    background-position: 225px 0;
+}
+
+.displays-puzzle_item[data-idx="3"] {
+    background-image: url('image/l-q-bcPP_6XhLKNqqPpvzg-default_photo-resizer.ru.jpg');
+    background-position: 150px 0;
+}
+
+.displays-puzzle_item[data-idx="4"] {
+    background-image: url('image/l-q-bcPP_6XhLKNqqPpvzg-default_photo-resizer.ru.jpg');
+    background-position: 75px 0;
+}
+
+.displays-puzzle_item[data-idx="5"] {
+    background-image: url('image/l-q-bcPP_6XhLKNqqPpvzg-default_photo-resizer.ru.jpg');
+    background-position: 300px 225px;
+}
+
+.displays-puzzle_item[data-idx="6"] {
+    background-image: url('image/l-q-bcPP_6XhLKNqqPpvzg-default_photo-resizer.ru.jpg');
+    background-position: 225px 225px;
+}
+
+.displays-puzzle_item[data-idx="7"] {
+    background-image: url('image/l-q-bcPP_6XhLKNqqPpvzg-default_photo-resizer.ru.jpg');
+    background-position: 150px 225px;
+}
+
+.displays-puzzle_item[data-idx="8"] {
+    background-image: url('image/l-q-bcPP_6XhLKNqqPpvzg-default_photo-resizer.ru.jpg');
+    background-position: 75px 225px;
+}
+
+.displays-puzzle_item[data-idx="9"] {
+    background-image: url('image/l-q-bcPP_6XhLKNqqPpvzg-default_photo-resizer.ru.jpg');
+    background-position: 300px 150px;
+}
+
+.displays-puzzle_item[data-idx="10"] {
+    background-image: url('image/l-q-bcPP_6XhLKNqqPpvzg-default_photo-resizer.ru.jpg');
+    background-position: 225px 150px;
+}
+
+.displays-puzzle_item[data-idx="11"] {
+    background-image: url('image/l-q-bcPP_6XhLKNqqPpvzg-default_photo-resizer.ru.jpg');
+    background-position: 150px 150px;
+}
+
+.displays-puzzle_item[data-idx="12"] {
+    background-image: url('image/l-q-bcPP_6XhLKNqqPpvzg-default_photo-resizer.ru.jpg');
+    background-position: 75px 150px;
+}
+
+.displays-puzzle_item[data-idx="13"] {
+    background-image: url('image/l-q-bcPP_6XhLKNqqPpvzg-default_photo-resizer.ru.jpg');
+    background-position: 300px 75px;
+}
+
+.displays-puzzle_item[data-idx="14"] {
+    background-image: url('image/l-q-bcPP_6XhLKNqqPpvzg-default_photo-resizer.ru.jpg');
+    background-position: 225px 75px;
+}
+
+.displays-puzzle_item[data-idx="15"] {
+    background-image: url('image/l-q-bcPP_6XhLKNqqPpvzg-default_photo-resizer.ru.jpg');
+    background-position: 150px 75px;
+}
+
+.displays-puzzle_item[data-idx="16"] {
+    background-image: url('image/l-q-bcPP_6XhLKNqqPpvzg-default_photo-resizer.ru.jpg');
+    background-position: 75px 75px;
+}
+
+
+
+
+
+
